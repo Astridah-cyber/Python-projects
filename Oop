@@ -1,0 +1,66 @@
+# Superhero class
+class Superhero:
+    def __init__(self, name, power, origin):
+        self.name = name  # Name of the superhero
+        self.power = power  # Special power of the superhero
+        self.origin = origin  # Origin of the superhero
+
+    def display_info(self):
+        print(f"Superhero: {self.name}")
+        print(f"Power: {self.power}")
+        print(f"Origin: {self.origin}")
+
+    def fight(self):
+        print(f"{self.name} is fighting crime with their {self.power} power!")
+
+# Superhero with additional method (inheritance & polymorphism)
+class FlyingSuperhero(Superhero):
+    def __init__(self, name, power, origin, flight_ability):
+        super().__init__(name, power, origin)
+        self.flight_ability = flight_ability  # Additional attribute for flying power
+
+    def fly(self):
+        print(f"{self.name} is flying with {self.flight_ability} ability!")
+
+    # Overriding the fight method to show polymorphism
+    def fight(self):
+        print(f"{self.name} is flying and fighting crime with {self.power} power!")
+
+# Creating Superhero objects
+hero1 = Superhero("Iron Man", "Repulsor Beams", "Earth")
+hero2 = FlyingSuperhero("Superman", "Super Strength", "Krypton", "Supersonic Speed")
+
+# Display superhero information
+hero1.display_info()
+hero2.display_info()
+
+# Using methods from both classes
+hero1.fight()
+hero2.fight()
+hero2.fly()
+# Base class for animals
+class Animal:
+    def move(self):
+        pass  # Placeholder method, will be overridden by subclasses
+
+# Class for Dog
+class Dog(Animal):
+    def move(self):
+        print("The dog is running 🐕")
+
+# Class for Fish
+class Fish(Animal):
+    def move(self):
+        print("The fish is swimming 🐠")
+
+# Class for Bird
+class Bird(Animal):
+    def move(self):
+        print("The bird is flying 🦅")
+
+# Polymorphism in action: creating instances of different animals
+animals = [Dog(), Fish(), Bird()]
+
+# Each animal moves in its own way
+for animal in animals:
+    animal.move()
