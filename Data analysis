@@ -1,0 +1,32 @@
+pip install pandas matplotlib jupyter
+import pandas as pd
+
+# Load the dataset
+data = pd.read_csv('your_dataset.csv')
+
+# Explore the dataset
+print(data.head())  # Display first 5 rows
+print(data.info())  # Check column info and data types
+print(data.describe())  # Summary statistics
+# Example: Correlation matrix
+correlation = data.corr()
+print(correlation)
+
+# Example: Grouping and summarizing
+grouped_data = data.groupby('some_column')['another_column'].mean()
+print(grouped_data)
+import matplotlib.pyplot as plt
+
+# Example: Histogram
+data['some_numeric_column'].hist(bins=20)
+plt.title('Histogram of Some Column')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+
+# Example: Scatter plot
+plt.scatter(data['x_column'], data['y_column'])
+plt.title('Scatter Plot')
+plt.xlabel('X Axis Label')
+plt.ylabel('Y Axis Label')
+plt.show()
